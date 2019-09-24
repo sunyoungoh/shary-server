@@ -1,29 +1,30 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var mongoose = require('mongoose');
-var config = require('./config/config');
-var dotenv = require('dotenv');
+const express = require('express');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const config = require('./config/config');
+const dotenv = require('dotenv');
 dotenv.config();
-var cors = require('cors');
-var morgan = require('morgan');
+const port = process.env.PORT || 5000;
+const cors = require('cors');
+const morgan = require('morgan');
 
-var userRouter = require('./routes/user');
-var reviewRouter = require('./routes/review');
-var reviewbookRouter = require('./routes/reviewbook');
-var bookRouter = require('./routes/book');
-var foodRouter = require('./routes/food');
-var movieRouter = require('./routes/movie');
-var musicRouter = require('./routes/music');
-var mapRouter = require('./routes/map');
-var openApiRouter = require('./routes/openApi');
-var kakaoRouter = require('./routes/auth');
-var tvRouter = require('./routes/tv');
-var searchRouter = require('./routes/search');
+const userRouter = require('./routes/user');
+const reviewRouter = require('./routes/review');
+const reviewbookRouter = require('./routes/reviewbook');
+const bookRouter = require('./routes/book');
+const foodRouter = require('./routes/food');
+const movieRouter = require('./routes/movie');
+const musicRouter = require('./routes/music');
+const mapRouter = require('./routes/map');
+const openApiRouter = require('./routes/openApi');
+const kakaoRouter = require('./routes/auth');
+const tvRouter = require('./routes/tv');
+const searchRouter = require('./routes/search');
 
-var port = process.env.PORT || 5000;
 
-var app = express();
+
+const app = express();
 app.use(morgan('dev'));
 app.use(cors());
 
@@ -35,7 +36,7 @@ app.use(bodyParser.json());
 
 // Use the passport package in our application
 app.use(passport.initialize());
-var passportMiddleware = require('./middleware/passport');
+const passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
 
 // Demo Route (GET http://localhost:5000)
