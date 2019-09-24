@@ -2,7 +2,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const fs = require('fs');
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config();
 
 function createToken(user) {
     return jwt.sign({
