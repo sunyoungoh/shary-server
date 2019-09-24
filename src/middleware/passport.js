@@ -1,13 +1,13 @@
-var User        = require('../models/user');
-var JwtStrategy = require('passport-jwt').Strategy,
-    ExtractJwt  = require('passport-jwt').ExtractJwt;
-var config      = require('../config/config');
- 
+const User = require('../models/user');
+const JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
+const dotenv = require('dotenv').config()
+
 var opts = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: config.jwtSecret
+    secretOrKey: process.env.jwtSecret
 }
- 
+
 module.exports = new JwtStrategy(opts, function (jwt_payload, done) {
     User.findById(jwt_payload.id, function (err, user) {
         if (err) {

@@ -1,15 +1,16 @@
-var request = require('request');
-var config = require('../config/config');
+const request = require('request');
+const dotenv = require('dotenv').config()
 
 // 책 데이터 가져오기
 exports.getBookData = (req, res) => {
+   
     console.log(req.params.term);
     var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.params.term); // json 결과
     var options = {
         url: api_url,
         headers: {
-            'X-Naver-Client-Id': config.client_id,
-            'X-Naver-Client-Secret': config.client_secret
+            'X-Naver-Client-Id': process.env.client_id,
+            'X-Naver-Client-Secret': process.env.client_secret
         }
     };
     request.get(options, function (error, response, body) {
@@ -54,7 +55,7 @@ exports.getMovieData = (req, res) => {
         qs:
         {
             language: 'ko-kr',
-            api_key: config.MOVIE_KEY,
+            api_key: process.env.MOVIE_KEY,
             query: req.params.title
         }
     };
@@ -74,7 +75,7 @@ exports.getCredits = (req, res) => {
         url: 'https://api.themoviedb.org/3/movie/' + req.params.id+'/credits',
         qs:
         {
-            api_key: config.MOVIE_KEY,
+            api_key: process.env.MOVIE_KEY,
             language: 'ko-kr'
         }
     };
@@ -96,7 +97,7 @@ exports.getTvData = (req, res) => {
         qs:
         {
             language: 'ko-kr',
-            api_key: config.MOVIE_KEY,
+            api_key: process.env.MOVIE_KEY,
             query: req.params.title
         }
     };

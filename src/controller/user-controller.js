@@ -1,15 +1,14 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
 const path = require('path');
 const fs = require('fs');
-
+const dotenv = require('dotenv').config()
 
 function createToken(user) {
     return jwt.sign({
         id: user.id,
         email: user.email
-    }, config.jwtSecret, {
+    }, process.env.jwtSecret, {
         expiresIn: 60 * 60 // 86400 expires in 24 hours
     });
 }
