@@ -3,7 +3,8 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var config = require('./config/config');
-var port = process.env.PORT || 5000;
+var dotenv = require('dotenv');
+dotenv.config();
 var cors = require('cors');
 var morgan = require('morgan');
 
@@ -20,7 +21,7 @@ var kakaoRouter = require('./routes/auth');
 var tvRouter = require('./routes/tv');
 var searchRouter = require('./routes/search');
 
-
+var port = process.env.PORT || 5000;
 
 var app = express();
 app.use(morgan('dev'));
