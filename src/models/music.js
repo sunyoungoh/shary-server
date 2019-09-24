@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var Image = require('../models/image');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const Image = require('../models/image');
 
 
-var MusicReviewSchema = new Schema({
+const MusicReviewSchema = new Schema({
     writer: {
         type: Schema.Types.ObjectId,
         ref: 'User'

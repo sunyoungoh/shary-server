@@ -1,8 +1,8 @@
-var Book = require('../models/book');
-var Food = require('../models/food');
-var Movie = require('../models/movie');
-var Music = require('../models/music');
-var Tv = require('../models/tv');
+const Book = require('../models/book');
+const Food = require('../models/food');
+const Movie = require('../models/movie');
+const Music = require('../models/music');
+const Tv = require('../models/tv');
 
 function searchConditions(category, term) {
     let conditions;
