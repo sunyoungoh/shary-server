@@ -2,9 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const config = require('./config/config');
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
 const morgan = require('morgan');
@@ -58,7 +56,7 @@ app.use('/api/search', openApiRouter);
 app.use('/api/auth', kakaoRouter);
 app.use('/api', userRouter);
 
-mongoose.connect(config.db, {
+mongoose.connect(process.env.db, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false
