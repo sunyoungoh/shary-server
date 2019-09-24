@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var Image = require('../models/image');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const Image = require('../models/image');
 
-var FoodReviewSchema = new Schema({
+const FoodReviewSchema = new Schema({
     country: {
         type: String,
         required: true
