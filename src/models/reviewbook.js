@@ -10,7 +10,11 @@ const ReviewbookSchema = new Schema({
         type: String,
         required: true
     },
-    createdAt: {  // 리뷰북 생성일자
+    color: {
+        type: Number,
+        required: true
+    },
+    createdAt: { // 리뷰북 생성일자
         type: Date,
         default: Date.now()
     },

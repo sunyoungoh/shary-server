@@ -3,7 +3,7 @@ const Food = require('../models/food');
 // 새 리뷰 작성
 exports.writeReview = (req, res) => {
 
-    let newReview = Food(req.body);
+    let newReview = new Food(req.body);
     let writer = req.user._id;
     newReview.writer = writer;
     newReview.tags = req.body.tags.split(',');
